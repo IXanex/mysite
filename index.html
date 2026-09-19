@@ -13,7 +13,18 @@
         <div class="gif_container">
             <img src="https://i.postimg.cc/CKfWDG6j/first.gif" alt="gif">
         </div>
+<script>
+                    function nextPage() {
+                        window.location.href = "yes.html";
+                    }
 
+                    function moveButton() {
+                        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
+                        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
+                        document.getElementById('noButton').style.left = `${x}px`;
+                        document.getElementById('noButton').style.top = `${y}px`;
+                    }
+                </script>
         <div class="buttons">
             <button class="btn" id="yesButton">ДА</button>
             <button class="btn" id="noButton">Нет</button>
