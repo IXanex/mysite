@@ -1,33 +1,113 @@
 <!DOCTYPE html>
 <html lang="ru">
- <meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <head>
-         <title>Приветик</title>
-        <link href="./styles.css" rel="stylesheet"/>
-    </head> 
-    <body><div class="container">
-<div>
-<h1 class="header_text">Ты миленькая?</h1>
-</div>
+    <title>Приветик</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-<div class="gif_container"><img src="https://i.postimg.cc/CKfWDG6j/first.gif" /></div>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffe6f0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow: hidden;
+        }
 
-<div class="buttons"><button class="btn" id="yesButton" onclick="nextPage()">ДА</button><button class="btn" id="noButton" onclick="moveButton()" onmouseover="moveButton()">Нет</button>
- <script>
-                    function nextPage() {
-                        window.location.href = "yes.html";
-                    }
+        .container {
+            text-align: center;
+            padding: 30px;
+        }
 
-                    function moveButton() {
-                        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
-                        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
-                        document.getElementById('noButton').style.left = `${x}px`;
-                        document.getElementById('noButton').style.top = `${y}px`;
-                    }
-                </script>
-</div>
+        .header_text {
+            color: #ff4d88;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .gif_container img {
+            max-width: 300px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            min-height: 60px;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.15s ease, background 0.2s ease;
+            font-weight: 600;
+        }
+
+        #yesButton {
+            background: #ff4d88;
+            color: #fff;
+        }
+
+        #yesButton:hover {
+            background: #e63e78;
+            transform: scale(1.05);
+        }
+
+        #noButton {
+            background: #fff;
+            color: #ff4d88;
+            border: 2px solid #ff4d88;
+            position: absolute;
+            transition: left 0.2s ease, top 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 class="header_text">Ты миленькая?</h1>
+        </div>
+
+        <div class="gif_container">
+            <img src="https://i.postimg.cc/CKfWDG6j/first.gif" alt="gif">
+        </div>
+
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="nextPage()">ДА</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">Нет</button>
+        </div>
+    </div>
+
+    <script>
+        function nextPage() {
+            window.location.href = "yes.html";
+        }
+
+        function moveButton() {
+            const btn = document.getElementById('noButton');
+            const maxX = window.innerWidth - btn.offsetWidth - 20;
+            const maxY = window.innerHeight - btn.offsetHeight - 20;
+
+            const x = Math.random() * maxX + 10;
+            const y = Math.random() * maxY + 10;
+
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+    </script>
 </body>
 </html>
-
 
