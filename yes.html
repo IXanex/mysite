@@ -12,7 +12,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: #f0f0f0;
+      background: #FFB6C1; /* нежно-розовый, как на главной */
       font-family: sans-serif;
       text-align: center;
       padding: 20px;
@@ -30,14 +30,16 @@
     }
 
     h1 {
-      font-size: 22px;
-      color: #FFB6C1;
+      font-size: 24px;
+      color: #fff;
       margin: 10px 0;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.15);
     }
 
     p {
-      color: #FFB6C1;
+      color: #fff;
       margin: 6px 0;
+      font-size: 16px;
     }
 
     /* скрытый текст: невидим, пока не выделишь */
@@ -52,15 +54,16 @@
       transition: color 0.3s ease;
       max-width: 520px;
       line-height: 1.5;
+      font-size: 16px;
     }
 
     .hidden-text::selection {
       color: #000;
-      background: #b3d4fc;
+      background: #fff;
     }
     .hidden-text::-moz-selection {
       color: #000;
-      background: #b3d4fc;
+      background: #fff;
     }
 
     /* клик — текст становится видимым */
@@ -70,7 +73,8 @@
 
     .hint {
       font-size: 13px;
-      color: #bbb;
+      color: #fff;
+      opacity: 0.7;
       margin-top: 8px;
     }
   </style>
@@ -79,8 +83,6 @@
   <div class="gif-container">
     <img src="https://i.postimg.cc/RVFpK1WN/image.gif" alt="GIF-изображение">
   </div>
-
-  <h1>Даааааа!!!</h1>
 
   <p class="hidden-text" id="secret">
     Люблю тебя всю, от пяточек до макушки, я не знаю скажу ли я это тебе когда мы будем рядом, надеюсь у меня хватит смелости. А так я оставлю это тут, на случай если я не решусь сказать это лично в глаза, буду стараться завалить тебя поцелуями, показать свою любовь как я это умею! &lt;3
