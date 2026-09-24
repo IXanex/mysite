@@ -11,10 +11,9 @@
       background: #ffffff;
     }
 
-    h1 {
-      margin-bottom: 10px;
-    }
+    h1 { margin-bottom: 10px; }
 
+    /* скрытый текст: невидим, пока не выделишь */
     .hidden-text {
       color: transparent;
       background: transparent;
@@ -22,16 +21,28 @@
       -webkit-user-select: text;
       -moz-user-select: text;
       -ms-user-select: text;
+      cursor: pointer;
+      transition: color 0.3s ease;
     }
 
     .hidden-text::selection {
       color: #000;
       background: #b3d4fc;
     }
-
     .hidden-text::-moz-selection {
       color: #000;
       background: #b3d4fc;
+    }
+
+    /* клик — текст становится видимым */
+    .hidden-text.revealed {
+      color: #000;
+    }
+
+    .hint {
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 4px;
     }
   </style>
 </head>
@@ -39,8 +50,16 @@
   <h1>Даааааа!!!</h1>
   <p>хз че тут писать</p>
 
-  <p class="hidden-text">
+  <p class="hidden-text" id="secret">
     Люблю тебя всю, от пяточек до макушки, я не знаю скажу ли я это тебе когда мы будем рядом, надеюсь у меня хватит смелости. А так я оставлю это тут, на случай если я не решусь сказать это лично в глаза, буду стараться завалить тебя поцелуями, показать свою любовь как я это умею! &lt;3
   </p>
+  <p class="hint">(нажми или выдели, чтобы прочитать)</p>
+
+  <script>
+    const secret = document.getElementById('secret');
+    secret.addEventListener('click', () => {
+      secret.classList.toggle('revealed');
+    });
+  </script>
 </body>
 </html>
